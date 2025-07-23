@@ -3,7 +3,7 @@
   "packageManager": "yarn@4.6.0",
   "type": "commonjs",
   "engines": {
-    "node": "14.x"
+    "node": "22.x"
   },
   "dependencies": {
     "@types/bcrypt": "^5.0.2",
