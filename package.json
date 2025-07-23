@@ -21,6 +21,8 @@
     "ts-node": "^10.9.2"
   },
   "scripts": {
-    "dev": "ts-node src/index"
+    "dev": "ts-node src/index",
+    "build": "tsc",
+    "start": "node dist/index.js"   
   }
 }
