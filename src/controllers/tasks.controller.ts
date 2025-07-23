@@ -22,9 +22,9 @@ export const searchTask = async (req: Request, res: Response): Promise<void> => 
 
 export const createTask = async (req: Request, res: Response): Promise<void> => {
   try {
-    const { title, description, author } = req.body;
+    const { title, helpdesk, description, author, company } = req.body;
 
-    const newTask = new Task({ title, description, author });
+    const newTask = new Task({ title, helpdesk, description, author, company });
     await newTask.save();
 
     res.status(201).json({ message: "Chamado criado com sucesso", chamado: newTask });
@@ -37,11 +37,11 @@ export const createTask = async (req: Request, res: Response): Promise<void> => 
 export const editTask = async (req: Request, res: Response): Promise<void> => {
   try {
     const { id } = req.params;
-    const { title, description, author } = req.body;
+    const { title, helpdesk, description, author, company } = req.body;
 
     const updatedTask = await Task.findByIdAndUpdate(
       id,
-      { title, description, author, updatedAt: Date.now() }
+      { title, helpdesk, description, author, company, updatedAt: Date.now() }
     );
 
     if (!updatedTask) {
