@@ -22,9 +22,10 @@ export const searchTask = async (req: Request, res: Response): Promise<void> => 
 
 export const createTask = async (req: Request, res: Response): Promise<void> => {
   try {
-    const { title, helpdesk, description, author, company } = req.body;
+    const { title, helpdesk, description, author, company, priority, status } = req.body;
+    console.log("REQ BODY:", req.body);
 
-    const newTask = new Task({ title, helpdesk, description, author, company });
+    const newTask = new Task({ title, helpdesk, description, author, company, priority, status });
     await newTask.save();
 
     res.status(201).json({ message: "Chamado criado com sucesso", chamado: newTask });
@@ -37,11 +38,11 @@ export const createTask = async (req: Request, res: Response): Promise<void> => 
 export const editTask = async (req: Request, res: Response): Promise<void> => {
   try {
     const { id } = req.params;
-    const { title, helpdesk, description, author, company } = req.body;
+    const { title, helpdesk, description, author, company, priority, status } = req.body;
 
     const updatedTask = await Task.findByIdAndUpdate(
       id,
-      { title, helpdesk, description, author, company, updatedAt: Date.now() }
+      { title, helpdesk, description, author, company, priority, status, updatedAt: Date.now() }
     );
 
     if (!updatedTask) {

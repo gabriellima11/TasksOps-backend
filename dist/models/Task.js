@@ -9,6 +9,8 @@ const taskSchema = new mongoose_1.default.Schema({
     helpdesk: { type: String, required: true },
     description: { type: String, required: true },
     author: { type: String, required: true },
-    company: { type: String, required: true }
+    company: { type: String, required: true },
+    priority: { type: String, required: true },
+    status: { type: String, required: true }
 }, { timestamps: true });
 exports.default = mongoose_1.default.model("Task", taskSchema);

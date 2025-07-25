@@ -23,8 +23,9 @@ const searchTask = async (req, res) => {
 exports.searchTask = searchTask;
 const createTask = async (req, res) => {
     try {
-        const { title, helpdesk, description, author, company } = req.body;
-        const newTask = new Task_1.default({ title, helpdesk, description, author, company });
+        const { title, helpdesk, description, author, company, priority, status } = req.body;
+        console.log("REQ BODY:", req.body);
+        const newTask = new Task_1.default({ title, helpdesk, description, author, company, priority, status });
         await newTask.save();
         res.status(201).json({ message: "Chamado criado com sucesso", chamado: newTask });
     }
@@ -36,8 +37,8 @@ exports.createTask = createTask;
 const editTask = async (req, res) => {
     try {
         const { id } = req.params;
-        const { title, helpdesk, description, author, company } = req.body;
-        const updatedTask = await Task_1.default.findByIdAndUpdate(id, { title, helpdesk, description, author, company, updatedAt: Date.now() });
+        const { title, helpdesk, description, author, company, priority, status } = req.body;
+        const updatedTask = await Task_1.default.findByIdAndUpdate(id, { title, helpdesk, description, author, company, priority, status, updatedAt: Date.now() });
         if (!updatedTask) {
             res.status(404).json({ message: "Chamado não encontrado" });
             return;

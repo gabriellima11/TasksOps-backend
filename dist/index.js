@@ -13,7 +13,11 @@ const PORT = process.env.PORT;
 const MONGO = process.env.MONGO_CONNECTION || "";
 const app = (0, express_1.default)();
 const port = 3000;
-app.use((0, cors_1.default)());
+const corsOption = {
+    origin: 'http://task-ops-interface.vercel.app',
+    credentials: true,
+};
+app.use((0, cors_1.default)(corsOption));
 app.use(express_1.default.json());
 // Rotas base
 app.use("/api", routes_1.default);

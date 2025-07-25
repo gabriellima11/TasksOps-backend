@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const tasks_controller_1 = require("../controllers/tasks.controller");
 const company_controller_1 = require("../controllers/company.controller");
+const user_controller_1 = require("../controllers/user.controller");
 const router = express_1.default.Router();
 // ROTAS TAREFAS
 router.post("/create-task", tasks_controller_1.createTask);
@@ -17,4 +18,7 @@ router.post("/create-company", company_controller_1.createCompany);
 router.put("/edit-company/:id", company_controller_1.editCompany);
 router.delete("/delete-company/:id", company_controller_1.deleteCompany);
 router.get("/company", company_controller_1.searchCompany);
+//ROTAS LOGIN
+router.post("/login", user_controller_1.login);
+router.post("/register", user_controller_1.register);
 exports.default = router;
