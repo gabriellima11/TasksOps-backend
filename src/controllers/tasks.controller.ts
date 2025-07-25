@@ -23,7 +23,6 @@ export const searchTask = async (req: Request, res: Response): Promise<void> => 
 export const createTask = async (req: Request, res: Response): Promise<void> => {
   try {
     const { title, helpdesk, description, author, company, priority, status } = req.body;
-    console.log("REQ BODY:", req.body);
 
     const newTask = new Task({ title, helpdesk, description, author, company, priority, status });
     await newTask.save();

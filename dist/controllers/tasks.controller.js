@@ -24,7 +24,6 @@ exports.searchTask = searchTask;
 const createTask = async (req, res) => {
     try {
         const { title, helpdesk, description, author, company, priority, status } = req.body;
-        console.log("REQ BODY:", req.body);
         const newTask = new Task_1.default({ title, helpdesk, description, author, company, priority, status });
         await newTask.save();
         res.status(201).json({ message: "Chamado criado com sucesso", chamado: newTask });

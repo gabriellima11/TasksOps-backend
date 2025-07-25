@@ -12,12 +12,15 @@ const MONGO = process.env.MONGO_CONNECTION || ""
 const app = express()
 const port = 3000
 
-const corsOption = {
-  origin: ['http://task-ops-interface.vercel.app', 'https://task-ops-interface.vercel.app'],
+const corsOptions = {
+  origin: ['https://task-ops-interface.vercel.app', 'http://task-ops-interface.vercel.app', 'http://localhost:5173'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
+  optionsSuccessStatus: 204
 };
 
-app.use(cors(corsOption))
+app.use(cors(corsOptions))
 app.use(express.json())
 
 // Rotas base
