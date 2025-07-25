@@ -13,8 +13,8 @@ const app = express()
 const port = 3000
 
 const corsOption = {
-	origin: 'http://task-ops-interface.vercel.app',
-	credentials: true,
+  origin: ['http://task-ops-interface.vercel.app', 'https://task-ops-interface.vercel.app'],
+  credentials: true,
 };
 
 app.use(cors(corsOption))
