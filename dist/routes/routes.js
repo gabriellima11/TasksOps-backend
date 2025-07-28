@@ -18,7 +18,8 @@ router.post("/create-company", company_controller_1.createCompany);
 router.put("/edit-company/:id", company_controller_1.editCompany);
 router.delete("/delete-company/:id", company_controller_1.deleteCompany);
 router.get("/company", company_controller_1.searchCompany);
-//ROTAS LOGIN
+//ROTAS USER
 router.post("/login", user_controller_1.login);
 router.post("/register", user_controller_1.register);
+router.get("/users", user_controller_1.searchUser);
 exports.default = router;

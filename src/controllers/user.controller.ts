@@ -83,3 +83,13 @@ export const register = async (req: Request, res: Response) => {
     res.status(500).json({ message: "Erro interno do servidor" });
   }
 };
+
+export const searchUser = async (req: Request, res: Response): Promise<void> => {
+  try {
+    const users = await User.find()
+
+    res.json(users);
+  } catch (error: any) {
+    res.status(500).json({ message: "Erro ao buscar chamados", error: error.message });
+  }
+};

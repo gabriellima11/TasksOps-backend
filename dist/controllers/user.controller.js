@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.register = exports.login = void 0;
+exports.searchUser = exports.register = exports.login = void 0;
 const User_1 = __importDefault(require("../models/User"));
 const bcrypt_1 = __importDefault(require("bcrypt"));
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
@@ -75,3 +75,13 @@ const register = async (req, res) => {
     }
 };
 exports.register = register;
+const searchUser = async (req, res) => {
+    try {
+        const users = await User_1.default.find();
+        res.json(users);
+    }
+    catch (error) {
+        res.status(500).json({ message: "Erro ao buscar chamados", error: error.message });
+    }
+};
+exports.searchUser = searchUser;
