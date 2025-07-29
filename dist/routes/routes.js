@@ -22,4 +22,6 @@ router.get("/company", company_controller_1.searchCompany);
 router.post("/login", user_controller_1.login);
 router.post("/register", user_controller_1.register);
 router.get("/users", user_controller_1.searchUser);
+router.put("/edit-user/:id", user_controller_1.editUser);
+router.delete("/delete-user/:id", user_controller_1.deleteUser);
 exports.default = router;

@@ -1,7 +1,7 @@
 import express from "express";
 import { createTask, editTask, deleteTask, searchTask } from "../controllers/tasks.controller";
 import { createCompany, editCompany, deleteCompany, searchCompany } from "../controllers/company.controller";
-import { login, register, searchUser } from "../controllers/user.controller";
+import { deleteUser, editUser, login, register, searchUser } from "../controllers/user.controller";
 
 const router = express.Router();
 
@@ -21,6 +21,8 @@ router.get("/company", searchCompany);
 router.post("/login", login);
 router.post("/register", register);
 router.get("/users", searchUser)
+router.put("/edit-user/:id", editUser)
+router.delete("/delete-user/:id", deleteUser )
 
 
 export default router;
